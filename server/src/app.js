@@ -9,10 +9,11 @@ export function createApp() {
 
   // CORS: browsers block a page on one address (the Vercel site) from calling
   // an API on another (Render) unless the API says that address is allowed.
-  // CLIENT_ORIGIN can hold several addresses separated by commas.
+  // CLIENT_ORIGIN can hold several addresses separated by commas. Browsers send
+  // the origin with no trailing "/", so we strip one if it was pasted in.
   const allowedOrigins = (process.env.CLIENT_ORIGIN || "http://localhost:5173")
     .split(",")
-    .map((origin) => origin.trim());
+    .map((origin) => origin.trim().replace(/\/+$/, ""));
   app.use(cors({ origin: allowedOrigins }));
 
   app.use(express.json());

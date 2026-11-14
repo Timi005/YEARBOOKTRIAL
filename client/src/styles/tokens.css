@@ -1,0 +1,84 @@
+/*
+  Design tokens: every colour, font, size and spacing value lives here.
+  Components use var(--name) and never a raw colour, so the Figma file and
+  the code can share one list of names. Values come from reference/template.html.
+*/
+
+:root {
+  /* Brand palette (fixed, same in light and dark) */
+  --navy: #0F1E3D;
+  --navy-deep: #0A1430;
+  --cream: #F4F0E8;
+  --orange: #E8602C;     /* accent: active nav, buttons, powered-on nodes */
+  --sky: #8FB8D8;
+  --gold: #F2C94C;       /* current pulses on the circuit timeline */
+  --paper: #FFF8DC;      /* drawing wall canvas */
+  --slate: #4A5A78;
+  --mist: #C9D3DE;       /* body text on the navy hero */
+  --white: #FFFFFF;
+
+  /* Theme roles (these flip in dark mode) */
+  --bg: var(--cream);
+  --ink: var(--navy);
+  --muted: var(--slate);
+  --card: #FBF8F1;
+  --grid: rgba(15, 30, 61, 0.07);
+  --trail: var(--navy);
+  --overlay: rgba(8, 16, 36, 0.94);
+  --shadow: 0 3px 8px rgba(15, 30, 61, 0.25);
+
+  /* Type */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-hand: "Caveat", cursive;
+
+  --text-xs: 11px;       /* mono labels */
+  --text-sm: 13px;
+  --text-md: 16px;
+  --text-lg: 20px;
+  --text-xl: 24px;
+  --text-h2: clamp(32px, 5vw, 56px);
+  --text-h1: clamp(40px, 8vw, 84px);
+  --text-hero: clamp(64px, 12vw, 150px);
+  --tracking-mono: 0.08em;
+  --leading-body: 1.6;
+
+  /* Spacing (multiples of 4) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-14: 56px;
+  --space-20: 80px;
+
+  /* Shape and layout */
+  --radius-none: 0;      /* the template is square-edged on purpose */
+  --radius-round: 50%;
+  --border: 1px solid var(--ink);
+  --page-max: 1152px;
+  --gutter: 20px;
+  --tap: 44px;           /* minimum touch target */
+  --breakpoint-phone: 720px; /* reference only: CSS can't use vars in @media */
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --duration-fast: 0.2s;
+  --duration-base: 0.5s;
+}
+
+/* Dark mode follows the device unless the page is forced to light. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: var(--navy);
+    --ink: var(--cream);
+    --muted: #A9B8D0;
+    --card: #16294F;
+    --grid: rgba(244, 240, 232, 0.07);
+    --trail: var(--sky);
+  }
+}

@@ -20,10 +20,11 @@ Deadline: deployed before Christmas 2026. Print comes after launch.
 - Hosting: frontend on Vercel/Netlify, backend on Render/Railway.
 
 ## Commands
-(Fill in once section 1 is done.)
-- Frontend dev: `...`
-- Backend dev: `...`
-- Seed database: `...`
+First time: `npm install` in both `client/` and `server/`, and copy each `.env.example` to `.env`.
+- Frontend dev: `cd client && npm run dev` (http://localhost:5173)
+- Backend dev: `cd server && npm run dev` (http://localhost:4000, restarts on save)
+- Frontend build / lint: `cd client && npm run build` / `npm run lint`
+- Seed database: `...` (section 2)
 
 ## Code style
 - Simple, readable code over clever code.
@@ -41,5 +42,5 @@ Deadline: deployed before Christmas 2026. Print comes after launch.
 - Commit after each working slice with a clear message.
 
 ## Current status
-- Current section: 0 (setup)
-- Next: section 1 (skeleton and first deploy)
+- Current section: 1 (skeleton and first deploy). Built and checked locally on branch `section-1-skeleton`; deploy to Render + Vercel still to do.
+- Next: section 2 (database and seed data)
